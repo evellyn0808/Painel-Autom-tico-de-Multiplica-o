@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Automático de Multiplicação</title>
+    <style>
+        .tabuada {
+            border: 4px solid #000000;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Painel de Tabuadas (1 a 10)</h2>
+    <div id="resultado"></div>
+
+    <script>
+        // Variável acumuladora de texto
+        let resultadoHTML = "";
+
+        // Contador do laço externo (tabuadas)
+        let numero = 1;
+
+        // Laço externo - gera as tabuadas de 1 até 10
+        while (numero <= 10) {
+
+            resultadoHTML += "<div class='tabuada'>";
+            resultadoHTML += "<h3>Tabuada do " + numero + "</h3>";
+
+            // Contador do laço interno (multiplicações)
+            let multiplicador = 1;
+
+            // Laço interno - multiplicações de 1 até 10
+            while (multiplicador <= 10) {
+                resultadoHTML += numero + " x " + multiplicador + " = "
+                                + (numero * multiplicador) + "<br>";
+               
+                // Incremento do laço interno
+                multiplicador++;
+            }
+
+            resultadoHTML += "</div>";
+
+            // Incremento do laço externo
+            numero++;
+        }
+
+        // Inserindo o conteúdo no DOM
+        document.getElementById("resultado").innerHTML = resultadoHTML;
+    </script>
+</body>
+</html>
